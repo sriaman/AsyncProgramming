@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 public class AsyncprogrammingApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AsyncprogrammingApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(AsyncprogrammingApplication.class, args);
+    }
 }

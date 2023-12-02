@@ -1,11 +1,12 @@
 package com.java.ms.asyncprogramming.model;
 
-
 import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+
 @Data
 public class Currency {
 
@@ -13,29 +14,30 @@ public class Currency {
     static List<Currency> currencies = new ArrayList<>();
     private String name;
     private String shortName;
-    private ConcurrentMap<String,Double> exchangeValue = new ConcurrentHashMap<>();
+    private ConcurrentMap<String, Double> exchangeValue = new ConcurrentHashMap<>();
 
     public Currency(String name, String shortName) {
         this.name = name;
         this.shortName = shortName;
     }
-    public static void init(){
 
-        currencies.add(new Currency("US Dollar","USD"));
-        currencies.add( new Currency("Euro", "EUR") );
-        currencies.add( new Currency("British Pound", "GBP") );
-        currencies.add( new Currency("Swiss Franc", "CHF") );
-        currencies.add( new Currency("Chinese Yuan Renminbi", "CNY") );
-        currencies.add( new Currency("Japanese Yen", "JPY") );
+    public static void init() {
 
-        for(Currency currency:currencies)
+        currencies.add(new Currency("US Dollar", "USD"));
+        currencies.add(new Currency("Euro", "EUR"));
+        currencies.add(new Currency("British Pound", "GBP"));
+        currencies.add(new Currency("Swiss Franc", "CHF"));
+        currencies.add(new Currency("Chinese Yuan Renminbi", "CNY"));
+        currencies.add(new Currency("Japanese Yen", "JPY"));
+
+        for (Currency currency : currencies)
             currency.defaultValues();
     }
 
-    public static Double init(String source,String target){
+    public static Double init(String source, String target) {
         init();
-        for(Currency cur:currencies)
-            if(cur.getShortName().equals(source))
+        for (Currency cur : currencies)
+            if (cur.getShortName().equals(source))
                 return cur.getExchangeValue().get(target);
         return -1.0;
     }
@@ -43,9 +45,9 @@ public class Currency {
 
     private void defaultValues() {
         String currency = this.name;
-        switch (currency){
+        switch (currency) {
             case "US Dollar":
-                this.exchangeValue.put("USD",1.0);
+                this.exchangeValue.put("USD", 1.0);
                 this.exchangeValue.put("EUR", 0.93);
                 this.exchangeValue.put("GBP", 0.66);
                 this.exchangeValue.put("CHF", 1.01);

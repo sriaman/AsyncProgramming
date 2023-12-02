@@ -8,8 +8,8 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class ExchangeRatesService {
 
-    public CompletableFuture<Double> getExchangeRate(String source,String target){
-        Double result = Currency.init(source,target);
+    public CompletableFuture<Double> getExchangeRate(String source, String target) {
+        Double result = Currency.init(source, target);
         return CompletableFuture.completedFuture(result);
     }
 }
