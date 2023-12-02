@@ -2,7 +2,6 @@ package com.java.ms.asyncprogramming.model;
 
 
 import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
