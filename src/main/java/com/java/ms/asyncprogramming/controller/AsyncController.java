@@ -29,10 +29,15 @@ public class AsyncController {
     public ResponseEntity<Map<String, Double>> getExchangeRates(@PathVariable String source) throws ExecutionException, InterruptedException {
 
         CompletableFuture<Double> rateFromSource1 = exchangeRatesService.getExchangeRate(source, "USD");
+        Thread.sleep(1000);
         CompletableFuture<Double> rateFromSource2 = exchangeRatesService.getExchangeRate(source, "EUR");
+        Thread.sleep(1000);
         CompletableFuture<Double> rateFromSource3 = exchangeRatesService.getExchangeRate(source, "GBP");
+        Thread.sleep(1000);
         CompletableFuture<Double> rateFromSource4 = exchangeRatesService.getExchangeRate(source, "CHF");
+        Thread.sleep(1000);
         CompletableFuture<Double> rateFromSource5 = exchangeRatesService.getExchangeRate(source, "CNY");
+        Thread.sleep(1000);
         CompletableFuture<Double> rateFromSource6 = exchangeRatesService.getExchangeRate(source, "JPY");
 
 
